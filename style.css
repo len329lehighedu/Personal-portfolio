@@ -110,7 +110,7 @@ a {
   height: 460px;
   top: 220px;
   right: -160px;
-  background: radial-gradient(circle at 60% 40%, var(--pink), transparent 70%);
+  background: radial-gradient(circle at 60% 40%, var(--red), transparent 70%);
   animation-delay: -4s;
 }
 
@@ -119,7 +119,7 @@ a {
   height: 380px;
   bottom: 60px;
   left: 10%;
-  background: radial-gradient(circle at 40% 60%, var(--purple), transparent 70%);
+  background: radial-gradient(circle at 40% 60%, var(--violet), transparent 70%);
   animation-delay: -8s;
 }
 
@@ -134,9 +134,9 @@ a {
 .blob5 {
   width: 340px;
   height: 340px;
-  bottom: -70px;
+  bottom: -10px;
   right: 20%;
-  background: radial-gradient(circle at 50% 50%, var(--green), transparent 70%);
+  background: radial-gradient(circle at 2% 2%, var(--green), transparent 70%);
   animation-delay: -12s;
 }
 
