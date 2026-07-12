@@ -32,6 +32,7 @@ body {
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
   position: relative;
+  transition: background-color .4s ease, color .4s ease;
 }
 
 ::selection {
@@ -165,12 +166,13 @@ nav {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--nav-bg);
   backdrop-filter: blur(16px);
   border: 1px solid var(--line);
   border-radius: 100px;
   padding: 10px 10px 10px 22px;
   box-shadow: var(--shadow);
+  transition: background-color .4s ease, border-color .4s ease;
 }
 
 .nav-logo {
@@ -205,6 +207,47 @@ nav {
   }
 }
 
+/* ---------- THEME TOGGLE ---------- */
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(29, 27, 41, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background .25s ease, transform .25s cubic-bezier(.22, 1, .36, 1);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  color: var(--fg);
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+.theme-toggle .icon-moon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
 /* ---------- HERO ---------- */
 .hero {
   min-height: 100svh;
@@ -219,7 +262,7 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: 100px;
   padding: 8px 18px;
@@ -241,6 +284,34 @@ nav {
 h1.hero-name {
   font-size: clamp(46px, 9vw, 104px);
   line-height: 1.03;
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.hero-avatar {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  padding: 4px;
+  background: var(--gradient);
+  background-size: 220% 220%;
+  animation: gradShift 10s ease infinite;
+  flex-shrink: 0;
+  box-shadow: var(--shadow);
+}
+
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 3px solid var(--bg);
 }
 
 .hero-sub {
@@ -289,7 +360,7 @@ h1.hero-name {
 }
 
 .btn-ghost {
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   color: var(--fg);
   box-shadow: var(--shadow);
@@ -317,7 +388,7 @@ h1.hero-name {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: 100px;
   padding: 10px 20px;
@@ -433,7 +504,7 @@ section {
   padding: 22px 22px;
   box-shadow: var(--shadow);
   border: 1.5px solid transparent;
-  background-image: linear-gradient(#fff, #fff), var(--gradient);
+  background-image: linear-gradient(var(--card), var(--card)), var(--gradient);
   background-origin: border-box;
   background-clip: padding-box, border-box;
   background-size: 100% 100%, 220% 220%;
@@ -462,7 +533,7 @@ section {
   box-shadow: var(--shadow);
   margin-bottom: 28px;
   border: 2px solid transparent;
-  background-image: linear-gradient(#fff, #fff), var(--gradient);
+  background-image: linear-gradient(var(--card), var(--card)), var(--gradient);
   background-origin: border-box;
   background-clip: padding-box, border-box;
   background-size: 100% 100%, 220% 220%;
@@ -494,8 +565,8 @@ bottom:0;
 height:90px;
 background:linear-gradient(
     transparent,
-    rgba(255,255,255,.65),
-    white
+    color-mix(in srgb, var(--card) 65%, transparent),
+    var(--card)
 );
 pointer-events:none;
 }
@@ -670,7 +741,7 @@ pointer-events:none;
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--card);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -781,7 +852,7 @@ pointer-events:none;
   height: 14px;
   border-radius: 50%;
   background: var(--gradient);
-  box-shadow: 0 0 0 5px #fff, 0 0 0 6px var(--line);
+  box-shadow: 0 0 0 5px var(--bg), 0 0 0 6px var(--line);
 }
 
 .tl-date {
@@ -835,7 +906,7 @@ pointer-events:none;
 .pill {
   font-weight: 600;
   font-size: 14px;
-  background: #fff;
+  background: var(--card);
   padding: 11px 20px;
   border: 1px solid var(--line);
   border-radius: 100px;
@@ -907,4 +978,35 @@ footer span {
 ::-webkit-scrollbar-thumb {
   background: #ddd;
   border-radius: 10px;
+}
+
+/* ---------- DARK THEME ---------- */
+:root {
+  --nav-bg: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] {
+  --bg: #0E0D14;
+  --card: #1A1826;
+  --fg: #F2F1F7;
+  --fg-dim: #9C9AB0;
+  --line: rgba(255, 255, 255, 0.09);
+  --shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
+  --nav-bg: rgba(26, 24, 38, 0.7);
+}
+
+[data-theme="dark"] .project-visual {
+  background: #100f18;
+}
+
+[data-theme="dark"] .nav-links a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .blob {
+  opacity: 0.3;
 }

@@ -213,3 +213,78 @@ const countIO = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.4 });
 counters.forEach(c => countIO.observe(c));
+
+// ---------- Magnify text (magnifying-glass hover, Apple-liquid style) ----------
+(function () {
+  if (!window.matchMedia('(pointer: fine)').matches) return; // skip on touch devices
+
+  function wrapWords(el) {
+    Array.from(el.childNodes).forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const parts = node.textContent.split(/(\s+)/);
+        const frag = document.createDocumentFragment();
+        parts.forEach(part => {
+          if (part.trim() === '') {
+            frag.appendChild(document.createTextNode(part));
+          } else {
+            const span = document.createElement('span');
+            span.className = 'magnify-word';
+            span.textContent = part;
+            frag.appendChild(span);
+          }
+        });
+        el.replaceChild(frag, node);
+      } else if (node.nodeType === Node.ELEMENT_NODE && !node.classList.contains('grad-text')) {
+        wrapWords(node); // recurse, but leave gradient-text spans untouched
+      }
+    });
+  }
+
+  const RADIUS = 110;   // px, how far the lens reaches
+  const MAX_SCALE = 0.55; // extra scale at the very center of the lens
+
+  document.querySelectorAll('.magnify-text').forEach(target => {
+    wrapWords(target);
+    const words = target.querySelectorAll('.magnify-word');
+
+    target.addEventListener('pointermove', (e) => {
+      words.forEach(word => {
+        const r = word.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top + r.height / 2;
+        const dist = Math.hypot(e.clientX - cx, e.clientY - cy);
+        if (dist < RADIUS) {
+          const scale = 1 + (1 - dist / RADIUS) * MAX_SCALE;
+          word.style.transform = `scale(${scale.toFixed(2)}) translateY(${(-(scale - 1) * 16).toFixed(1)}px)`;
+        } else {
+          word.style.transform = '';
+        }
+      });
+    });
+
+    target.addEventListener('pointerleave', () => {
+      words.forEach(word => { word.style.transform = ''; });
+    });
+  });
+})();
+
+// ---------- Dark mode toggle ----------
+(function () {
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  if (!toggle) return;
+
+  toggle.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) { /* storage unavailable, ignore */ }
+  });
+
+  // Follow OS preference changes only if the user hasn't manually chosen a theme
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (err) { /* ignore */ }
+    if (!saved) root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+  });
+})();
