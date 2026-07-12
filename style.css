@@ -4,13 +4,15 @@
   --fg: #1D1B29;
   --fg-dim: #6E6C80;
   --line: rgba(29, 27, 41, 0.08);
+  --red: #c13647;
   --blue: #4F86F7;
   --green: #a3dd50;
   --yellow: #f8dc32;
-  --purple: #A855F7;
+  --purple: #B163FF;
+  --violet: #51158C;
   --pink: #EC4899;
   --orange: #F6A93B;
-  --gradient: linear-gradient(120deg, var(--blue) 10%, var(--green) 20%, var(--yellow) 30%, var(--purple) 40%, var(--pink) 60%, var(--orange) 100%);
+  --gradient: linear-gradient(120deg, var(--red) 20%, var(--orange) 30%, var(--yellow) 40%, var(--green) 50%, var(--blue) 60%, var(--purple) 70%, var(--violet) 100%);
   --shadow: 0 20px 60px -20px rgba(80, 60, 140, 0.18);
 }
 
@@ -62,7 +64,7 @@ a {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: gradShift 8s ease infinite;
+  animation: gradShift 6s ease infinite;
 }
 
 @keyframes gradShift {
