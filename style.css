@@ -406,8 +406,8 @@ footer span,
 /* ---------- PROJECTS ---------- */
 .project {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 40px;
+  grid-template-columns: minmax(280px, 42%) 1fr;
+  gap: 48px;
   padding: 36px 0;
   border-top: 1px solid var(--line-soft);
 }
@@ -426,7 +426,7 @@ footer span,
 .project-visual {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   border: 1px solid var(--line);
   background: var(--line-soft);
@@ -450,7 +450,7 @@ footer span,
   font-size: 15px;
   line-height: 1.7;
   margin-bottom: 16px;
-  max-width: 52ch;
+  max-width: 62ch;
 }
 
 .project-tags {
