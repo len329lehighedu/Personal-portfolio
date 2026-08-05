@@ -1,9 +1,10 @@
+// ---------- Reveal on scroll ----------
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
 }, { threshold: 0.15 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// ---------- Draggable & Autoplay image carousels ----------
+// ---------- Draggable & autoplay image carousels ----------
 function initCarousels() {
   document.querySelectorAll('.carousel').forEach(carousel => {
     let images = [];
@@ -24,25 +25,16 @@ function initCarousels() {
     let dots = null;
     let autoplayTimer = null;
     let currentIdx = 0;
-
-    // Hàm quản lý autoplay
     let direction = 1;
+
     function startAutoplay() {
       if (images.length <= 1) return;
       autoplayTimer = setInterval(() => {
         currentIdx += direction;
-        if (currentIdx >= images.length - 1) {
-          direction = -1;
-        }
-        if (currentIdx <= 0) {
-          direction = 1;
-        }
-        track.scrollTo({
-          left: track.clientWidth * currentIdx,
-          behavior: 'smooth'
-        });
-      }, 3000);
-
+        if (currentIdx >= images.length - 1) direction = -1;
+        if (currentIdx <= 0) direction = 1;
+        track.scrollTo({ left: track.clientWidth * currentIdx, behavior: 'smooth' });
+      }, 3400);
     }
 
     function stopAutoplay() {
@@ -71,14 +63,12 @@ function initCarousels() {
         dots.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
       });
 
-      // Bắt đầu tự động chạy
       startAutoplay();
     }
 
-    // Drag to browse (Chuột/Cảm ứng) + Tạm dừng autoplay khi tương tác
     let isDown = false, startX = 0, scrollStart = 0;
     track.addEventListener('pointerdown', (e) => {
-      stopAutoplay(); // Dừng chạy tự động khi user click/chạm vào ảnh
+      stopAutoplay();
       isDown = true;
       track.classList.add('dragging');
       startX = e.pageX;
@@ -94,7 +84,7 @@ function initCarousels() {
         if (isDown) {
           isDown = false;
           track.classList.remove('dragging');
-          startAutoplay(); // Chạy lại autoplay sau khi user thả chuột/tay ra
+          startAutoplay();
         }
       });
     });
@@ -102,95 +92,7 @@ function initCarousels() {
 }
 initCarousels();
 
-// ---------- Glass cursor (replaces native cursor on desktop) ----------
-(function () {
-  if (!window.matchMedia('(pointer: fine)').matches) return; // skip on touch devices
-
-  const cursor = document.createElement('div');
-  cursor.className = 'glass-cursor';
-  document.body.appendChild(cursor);
-
-  const mouse = { x: innerWidth / 2, y: innerHeight / 2 };
-  let curX = mouse.x, curY = mouse.y;
-
-  window.addEventListener('pointermove', (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  });
-  window.addEventListener('pointerdown', () => cursor.classList.add('click'));
-  window.addEventListener('pointerup', () => cursor.classList.remove('click'));
-
-  function tick() {
-    curX += (mouse.x - curX) * 0.18;
-    curY += (mouse.y - curY) * 0.18;
-    cursor.style.transform = `translate(${curX}px, ${curY}px) translate(-50%,-50%)`;
-    requestAnimationFrame(tick);
-  }
-  tick();
-
-  const HOVER_SELECTOR = 'a, button, .btn, .social-circle, .pill, .carousel, .carousel-dot';
-  document.addEventListener('pointerover', (e) => {
-    if (e.target.closest(HOVER_SELECTOR)) cursor.classList.add('hover');
-  });
-  document.addEventListener('pointerout', (e) => {
-    if (e.target.closest(HOVER_SELECTOR)) cursor.classList.remove('hover');
-  });
-})();
-
-// ---------- Magnetic buttons ----------
-(function () {
-  if (!window.matchMedia('(pointer: fine)').matches) return;
-
-  document.querySelectorAll('.btn, .social-circle').forEach(el => {
-    const strength = el.classList.contains('social-circle') ? 0.45 : 0.3;
-
-    el.addEventListener('pointermove', (e) => {
-      const r = el.getBoundingClientRect();
-      const relX = e.clientX - r.left - r.width / 2;
-      const relY = e.clientY - r.top - r.height / 2;
-      el.style.transform = `translate(${(relX * strength).toFixed(1)}px, ${(relY * strength).toFixed(1)}px)`;
-    });
-
-    el.addEventListener('pointerleave', () => {
-      el.style.transform = '';
-    });
-  });
-})();
-
-// ---------- Card tilt + image parallax ----------
-(function () {
-  if (!window.matchMedia('(pointer: fine)').matches) return;
-
-  document.querySelectorAll('.project-card').forEach(card => {
-    const track = card.querySelector('.carousel-track');
-
-    card.addEventListener('pointermove', (e) => {
-      const r = card.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width - 0.5;
-      const py = (e.clientY - r.top) / r.height - 0.5;
-      const rotateX = (-py * 6).toFixed(2);
-      const rotateY = (px * 8).toFixed(2);
-
-      card.style.transition = 'transform .1s linear';
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-
-      if (track) {
-        track.style.transition = 'transform .1s linear';
-        track.style.transform = `translate(${(-px * 20).toFixed(1)}px, ${(-py * 20).toFixed(1)}px) scale(1.06)`;
-      }
-    });
-
-    card.addEventListener('pointerleave', () => {
-      card.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1)';
-      card.style.transform = '';
-      if (track) {
-        track.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1)';
-        track.style.transform = '';
-      }
-    });
-  });
-})();
-
+// ---------- Animated counters ----------
 const counters = document.querySelectorAll('[data-count]');
 const countIO = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -214,58 +116,26 @@ const countIO = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 counters.forEach(c => countIO.observe(c));
 
-// ---------- Magnify text (magnifying-glass hover, Apple-liquid style) ----------
+// ---------- Index nav: scrollspy ----------
 (function () {
-  if (!window.matchMedia('(pointer: fine)').matches) return; // skip on touch devices
+  const items = document.querySelectorAll('.idx-item');
+  if (!items.length) return;
+  const sections = Array.from(items)
+    .map(item => document.getElementById(item.dataset.target))
+    .filter(Boolean);
 
-  function wrapWords(el) {
-    Array.from(el.childNodes).forEach(node => {
-      if (node.nodeType === Node.TEXT_NODE) {
-        const parts = node.textContent.split(/(\s+)/);
-        const frag = document.createDocumentFragment();
-        parts.forEach(part => {
-          if (part.trim() === '') {
-            frag.appendChild(document.createTextNode(part));
-          } else {
-            const span = document.createElement('span');
-            span.className = 'magnify-word';
-            span.textContent = part;
-            frag.appendChild(span);
-          }
-        });
-        el.replaceChild(frag, node);
-      } else if (node.nodeType === Node.ELEMENT_NODE && !node.classList.contains('grad-text')) {
-        wrapWords(node); // recurse, but leave gradient-text spans untouched
+  const spyIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const item = document.querySelector(`.idx-item[data-target="${entry.target.id}"]`);
+      if (!item) return;
+      if (entry.isIntersecting) {
+        items.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
       }
     });
-  }
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
 
-  const RADIUS = 110;   // px, how far the lens reaches
-  const MAX_SCALE = 0.55; // extra scale at the very center of the lens
-
-  document.querySelectorAll('.magnify-text').forEach(target => {
-    wrapWords(target);
-    const words = target.querySelectorAll('.magnify-word');
-
-    target.addEventListener('pointermove', (e) => {
-      words.forEach(word => {
-        const r = word.getBoundingClientRect();
-        const cx = r.left + r.width / 2;
-        const cy = r.top + r.height / 2;
-        const dist = Math.hypot(e.clientX - cx, e.clientY - cy);
-        if (dist < RADIUS) {
-          const scale = 1 + (1 - dist / RADIUS) * MAX_SCALE;
-          word.style.transform = `scale(${scale.toFixed(2)}) translateY(${(-(scale - 1) * 16).toFixed(1)}px)`;
-        } else {
-          word.style.transform = '';
-        }
-      });
-    });
-
-    target.addEventListener('pointerleave', () => {
-      words.forEach(word => { word.style.transform = ''; });
-    });
-  });
+  sections.forEach(sec => spyIO.observe(sec));
 })();
 
 // ---------- Dark mode toggle ----------
@@ -281,7 +151,6 @@ counters.forEach(c => countIO.observe(c));
     try { localStorage.setItem('theme', next); } catch (e) { /* storage unavailable, ignore */ }
   });
 
-  // Follow OS preference changes only if the user hasn't manually chosen a theme
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     let saved = null;
     try { saved = localStorage.getItem('theme'); } catch (err) { /* ignore */ }

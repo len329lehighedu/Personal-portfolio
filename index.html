@@ -4,15 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le Minh Ngo — CS & Business, Lehigh University</title>
+  <title>Le Minh Ngo — CS &amp; Business, Lehigh University</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script>
-    // Apply saved/preferred theme immediately (before paint) to avoid a light-mode flash
     (function () {
       var saved = localStorage.getItem('theme');
       var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -23,330 +22,279 @@
 
 <body>
 
-  <div class="blob-field">
-    <div class="blob blob1"></div>
-    <div class="blob blob2"></div>
-    <div class="blob blob3"></div>
-    <div class="blob blob4"></div>
-    <div class="blob blob5"></div>
-  </div>
-
-  <nav>
-    <div class="nav-logo">Me</div>
-    <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+  <!-- ---------- TOP BAR ---------- -->
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <a href="#top" class="wordmark">Le Minh Ngo</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4" />
+          <path
+            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+        </svg>
+      </button>
     </div>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="4" />
-        <path
-          d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-      </svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
-      </svg>
-    </button>
-  </nav>
+  </div>
 
   <!-- ---------- HERO ---------- -->
-  <header class="hero">
-    <div class="wrap" style="padding:0;">
-      <h1 class="hero-name display">Le Minh <span class="grad-text">Ngo</span></h1>
-      <div class="hero-top">
-        <p class="hero-sub">
-          As a CS & Business enthusiast, I sit at the intersection of complex data systems and human-centric
-          solutions. From developing SINDy equation-discovery modules for STEM research to streamlining grading
-          workflows
-          for 300+ math students, I love making messy data clear and actionable. I thrive on breaking down intricate
-          technical challenges into impactful, scalable tools that solve real-world problems.
+  <header class="hero" id="top">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <p class="kicker">Computer Science &amp; Business · Lehigh University</p>
+        <h1 class="hero-name">Le Minh Ngo</h1>
+        <p class="lede reveal">
+          I look at a mess of raw data and see a story waiting to be told. To me, there's nothing more exciting
+          than digging beneath the surface of numbers to uncover the hidden patterns that drive the world.
         </p>
-        <div class="hero-avatar">
-          <img src="images/avatar.png" alt="Le Minh Ngo">
+        <div class="hero-links">
+          <a href="#work">View work</a>
+          <span class="sep">·</span>
+          <a href="#contact">Get in touch</a>
         </div>
       </div>
-      <div class="hero-cta">
-        <a href="#work" class="btn btn-primary">View Work</a>
-        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      <div class="hero-avatar">
+        <img src="images/avatar.png" alt="Le Minh Ngo">
       </div>
     </div>
+
+    <!-- <div class="skill-line">
+      <div class="wrap">
+        <p>Python · SINDy Equation Discovery · Signal Processing · React Native · SQL · Linear Algebra · Excel
+          Automation · Java</p>
+      </div>
+    </div> -->
   </header>
 
-  <!-- ---------- TICKER ---------- -->
-  <div class="ticker-strip">
-    <div class="ticker-track" id="tickerTrack">
-      <div class="chip"><span class="dot"></span>SINDy Equation Discovery</div>
-      <div class="chip"><span class="dot"></span>Signal Processing</div>
-      <div class="chip"><span class="dot"></span>Python</div>
-      <div class="chip"><span class="dot"></span>React Native</div>
-      <div class="chip"><span class="dot"></span>SQL</div>
-      <div class="chip"><span class="dot"></span>Linear Algebra</div>
-      <div class="chip"><span class="dot"></span>Excel Automation</div>
-      <div class="chip"><span class="dot"></span>Java</div>
-      <div class="chip"><span class="dot"></span>SINDy Equation Discovery</div>
-      <div class="chip"><span class="dot"></span>Signal Processing</div>
-      <div class="chip"><span class="dot"></span>Python</div>
-      <div class="chip"><span class="dot"></span>React Native</div>
-      <div class="chip"><span class="dot"></span>SQL</div>
-      <div class="chip"><span class="dot"></span>Linear Algebra</div>
-      <div class="chip"><span class="dot"></span>Excel Automation</div>
-      <div class="chip"><span class="dot"></span>Java</div>
-    </div>
+  <!-- ---------- BODY LAYOUT ---------- -->
+  <div class="layout wrap">
+
+    <aside class="index-nav">
+      <nav>
+        <a href="#about" class="idx-item" data-target="about"><span class="idx-num">01</span>About</a>
+        <a href="#work" class="idx-item" data-target="work"><span class="idx-num">02</span>Selected Work</a>
+        <a href="#experience" class="idx-item" data-target="experience"><span class="idx-num">03</span>Experience</a>
+        <a href="#skills" class="idx-item" data-target="skills"><span class="idx-num">04</span>Skills</a>
+        <a href="#contact" class="idx-item" data-target="contact"><span class="idx-num">05</span>Contact</a>
+      </nav>
+    </aside>
+
+    <main class="content">
+
+      <!-- ---------- ABOUT ---------- -->
+      <section id="about" class="sec">
+        <div class="sec-head reveal">
+          <span class="sec-num">01</span>
+          <h2 class="sec-title">About</h2>
+        </div>
+
+        <div class="about-body reveal">
+          <p>I'm a <a href="https://csb.lehigh.edu/" target="_blank" rel="noopener">Computer Science &amp;
+              Business</a> student at Lehigh University, currently building an equation-discovery module for
+            Lehigh's STEM Visualization platform, grading MATH205 for ~300 students, and supporting international
+            students through Lehigh's OISS.</p>
+          <p>During my time at <a href="https://ptnk.edu.vn/" target="_blank" rel="noopener">VNU – Highschool for
+              the Gifted</a>, I led a volunteer IT curriculum for orphaned students in Ho Chi Minh City — which is
+            where I first learned that good teaching and good software are the same skill: making something
+            complicated feel obvious.</p>
+        </div>
+
+        <div class="stat-row reveal">
+          <div class="stat">
+            <div class="num" data-count="3.73" data-decimals="2">0</div>
+            <div class="lbl">Cumulative GPA</div>
+          </div>
+          <div class="stat">
+            <div class="num" data-count="300">0</div>
+            <div class="lbl">Students Graded / Sem</div>
+          </div>
+          <div class="stat">
+            <div class="num" data-count="100">0</div>
+            <div class="lbl">Int'l Students Advised</div>
+          </div>
+          <div class="stat">
+            <div class="num" data-count="20" data-suffix="%">0</div>
+            <div class="lbl">Faster HW Turnaround</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- PROJECTS ---------- -->
+      <section id="work" class="sec">
+        <div class="sec-head reveal">
+          <span class="sec-num">02</span>
+          <h2 class="sec-title">Selected Work</h2>
+        </div>
+
+        <!-- Project 1 -->
+        <article class="project reveal">
+          <div class="project-visual carousel" data-images='[
+            "images/train.png",
+            "images/test.png",
+            "images/predict.png"
+          ]'></div>
+          <div class="project-body">
+            <div class="project-meta">01 — In progress</div>
+            <h3 class="project-title">SINDy Equation-Discovery Module</h3>
+            <p class="project-desc">A module for Lehigh's STEM Visualization Impact Fellowship that lets
+              researchers feed in raw data and get back the governing equation behind it, using Sparse
+              Identification of Nonlinear Dynamics (SINDy). Set for public release on Lehigh's STEM Visualization
+              platform.</p>
+            <div class="project-tags">
+              <span>Python</span><span>SINDy</span><span>Data Science</span>
+            </div>
+            <a href="#" class="project-link disabled">Coming soon →</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project reveal">
+          <div class="project-visual carousel" data-images='[
+            "images/chem_1.png",
+            "images/chem_2.png",
+            "images/chem_3.png"
+          ]'></div>
+          <div class="project-body">
+            <div class="project-meta">02 — In progress</div>
+            <h3 class="project-title">CHEM031 Interactive Chemistry Module</h3>
+            <p class="project-desc">Co-built with 3 teammates: an interactive teaching tool covering ideal gas
+              laws and recycling systems for Lehigh's CHEM031, designed to reach 200–300 students every semester
+              and enhance their learning outcomes.</p>
+            <div class="project-tags">
+              <span>Python</span><span>Bokeh</span><span>Chemistry</span>
+            </div>
+            <a href="#" class="project-link disabled">Coming soon →</a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project reveal">
+          <div class="project-visual carousel" data-images='[
+            "images/excel1.png",
+            "images/excel2.png",
+            "images/excel3.png"
+          ]'></div>
+          <div class="project-body">
+            <div class="project-meta">03 — Complete</div>
+            <h3 class="project-title">Excel Curriculum for Hoa Hue Shelter</h3>
+            <p class="project-desc">Designed and led 10 Excel sessions for 20 orphaned students in Ho Chi Minh
+              City, taking them from zero to comfortable with basic Excel formulas like SUM/AVERAGE/IF and clear,
+              readable table formatting.</p>
+            <div class="project-tags">
+              <span>Curriculum Design</span><span>Microsoft Excel</span><span>Leadership</span>
+            </div>
+            <a href="https://drive.google.com/drive/folders/1y6OcqOFaXslaixDcJygTSnKuZi5Pe8Ar" target="_blank"
+              rel="noopener" class="project-link">See more images →</a>
+          </div>
+        </article>
+      </section>
+
+      <!-- ---------- EXPERIENCE ---------- -->
+      <section id="experience" class="sec">
+        <div class="sec-head reveal">
+          <span class="sec-num">03</span>
+          <h2 class="sec-title">Experience</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="tl-date">Spring 2026 — Present</div>
+            <div class="tl-role">Math Grader</div>
+            <div class="tl-org">MATH205 · Linear Methods, Lehigh University</div>
+            <p class="tl-desc">Grade weekly problem sets for ~300 students on a 6-person team; cut homework
+              return latency by 20% and recognized by the instructor as part of the top-performing grading team
+              this semester.</p>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-date">January 2026 — Present</div>
+            <div class="tl-role">Developer</div>
+            <div class="tl-org">STEM Visualization Impact Fellowship, Lehigh University</div>
+            <p class="tl-desc">Build the SINDy equation-discovery module, research and develop a
+              benchmark-driven Data Scouting framework for automated SINDy hyperparameter recommendation, and
+              co-build the CHEM031 chemistry module with 3 other teammates.</p>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-date">August 2025 — Present</div>
+            <div class="tl-role">Student Assistant</div>
+            <div class="tl-org">Office of International Students &amp; Scholars, Lehigh University</div>
+            <p class="tl-desc">Advise 100+ international students per semester on documentation and advisor
+              connections; assisted in 10+ on-campus international student events; helped drive a 15%
+              year-over-year increase in event engagement.</p>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-date">March 2024 — May 2025</div>
+            <div class="tl-role">Head of Lesson Planning Committee</div>
+            <div class="tl-org">IT Teaching Project at Hoa Hue Shelter, Ho Chi Minh City</div>
+            <p class="tl-desc">Led a team of 8 mentors operating 12 teaching sessions, designed the IT
+              curriculum, and managed task delegation across the committee. After the program, all the kids knew
+              how to use basic Excel formulas and could solve easy–medium level Excel problems.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- SKILLS ---------- -->
+      <section id="skills" class="sec">
+        <div class="sec-head reveal">
+          <span class="sec-num">04</span>
+          <h2 class="sec-title">Skills</h2>
+        </div>
+
+        <div class="reveal">
+          <div class="skills-block">
+            <div class="skills-cat">Programming Languages</div>
+            <div class="token-row">
+              <span>Java</span><span>JavaScript</span><span>Python</span><span>SQL</span><span>HTML / CSS</span>
+            </div>
+          </div>
+          <div class="skills-block">
+            <div class="skills-cat">Frameworks &amp; Tools</div>
+            <div class="token-row">
+              <span>React Native</span><span>Git / GitHub</span><span>Microsoft Office Suite</span>
+            </div>
+          </div>
+          <div class="skills-block">
+            <div class="skills-cat">Languages</div>
+            <div class="token-row">
+              <span>Vietnamese — Native</span><span>English — Fluent</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- CONTACT ---------- -->
+      <section id="contact" class="sec contact">
+        <div class="sec-head reveal">
+          <span class="sec-num">05</span>
+          <h2 class="sec-title">Contact</h2>
+        </div>
+
+        <p class="lede reveal">Let's build something.</p>
+
+        <div class="contact-row reveal">
+          <a href="mailto:Minhngo190407@gmail.com" class="contact-email">Minhngo190407@gmail.com</a>
+        </div>
+
+        <div class="social-row reveal">
+          <a href="https://github.com/len329lehighedu" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+          <a href="https://www.linkedin.com/in/minhngole1904/" target="_blank" rel="noopener"
+            aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://www.facebook.com/meritofapril" target="_blank" rel="noopener"
+            aria-label="Facebook">Facebook</a>
+        </div>
+      </section>
+
+    </main>
   </div>
 
-  <!-- ---------- ABOUT ---------- -->
-  <section id="about">
-    <div class="wrap">
-      <div class="sec-label">01 · About</div>
-      <div class="about-grid">
-        <div class="about-statement reveal">
-          I look at a mess of raw data and see a story waiting to be told.
-          To me, there’s nothing more exciting than digging beneath the surface of numbers to uncover the hidden
-          patterns that drive the world.
-        </div>
-        <div class="about-body reveal">
-          <p>I'm a <a href="https://csb.lehigh.edu/" target="_blank"
-            rel="noopener"> Computer Science &amp; Business</a> student at Lehigh University, currently building an
-            equation-discovery
-            module for Lehigh's STEM Visualization platform, grading MATH205 for ~300 students, and supporting
-            international students through Lehigh's OISS.</p>
-          <p>During the time at <a href="https://ptnk.edu.vn/" target="_blank"
-            rel="noopener"> VNU - Highschool for the Gifted</a>, I led a volunteer IT curriculum for orphaned students in Ho Chi Minh City — which is where
-            I first learned that good teaching and good software are the same skill: making something complicated feel
-            obvious.</p>
-          <div class="stat-grid">
-            <div class="stat">
-              <div class="num grad-text" data-count="3.73" data-decimals="2">0</div>
-              <div class="lbl">Cumulative GPA</div>
-            </div>
-            <div class="stat">
-              <div class="num grad-text" data-count="300">0</div>
-              <div class="lbl">Students Graded / Sem</div>
-            </div>
-            <div class="stat">
-              <div class="num grad-text" data-count="100">0</div>
-              <div class="lbl">Int'l Students Advised</div>
-            </div>
-            <div class="stat">
-              <div class="num grad-text" data-count="20" data-suffix="%">0</div>
-              <div class="lbl">Faster HW Turnaround</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------- PROJECTS ---------- -->
-  <section id="work">
-    <div class="wrap">
-      <div class="sec-label">02 · Selected Work</div>
-      <h2 class="sec-title display reveal">Things I've <span class="grad-text">Built</span></h2>
-
-      <!-- Project 1 -->
-      <div class="project-card reveal">
-        <!--
-        🖼️ TO ADD YOUR OWN IMAGES:
-        Just replace the 3 URLs inside data-images below with your own image links
-        (Google Drive links won't work directly for <img> — use imgur, a direct hosting link,
-        or export the Drive files as "anyone with the link can view" + a direct image URL).
-        You can add more or fewer images — the carousel adjusts automatically.
-      -->
-        <div class="project-visual carousel" data-images='[
-        "images/train.png",
-        "images/test.png",
-        "images/predict.png"
-      ]'></div>
-        <div class="project-body">
-          <div class="project-num">01 — In Progress</div>
-          <div class="project-title"> <span class="grad-text">SINDy</span> Equation-Discovery Module</div>
-          <p class="project-desc">A module for Lehigh's STEM Visualization Impact Fellowship that lets researchers feed
-            in
-            raw data and get back the governing equation behind it, using Sparse Identification of Nonlinear Dynamics
-            (SINDy). Set for public release on Lehigh's STEM Visualization platform.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">SINDy</span><span class="tag">Data Science</span>
-          </div>
-          <!-- Replace href="#" with the live project link once public -->
-          <a href="#" class="project-link disabled">Coming soon →</a>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="project-card reveal">
-        <div class="project-visual carousel" data-images='[
-        "images/chem_1.png",
-        "images/chem_2.png",
-        "images/chem_3.png"
-      ]'></div>
-        <div class="project-body">
-          <div class="project-num">02 — In Progress</div>
-          <div class="project-title"> <span class="grad-text">CHEM031</span> Interactive Chemistry Module</div>
-          <p class="project-desc">Co-built with 3 teammates: an interactive teaching tool covering ideal gas laws and
-            recycling systems for Lehigh's CHEM031, designed to reach 200–300 students every semester and enhance their
-            learning outcomes.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">Bokeh</span><span class="tag">Chemistry</span>
-          </div>
-          <a href="#" class="project-link disabled">Coming soon →</a>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="project-card reveal">
-        <!-- 🖼️ Replace the 3 URLs below with your own IT Teaching Project photos -->
-        <div class="project-visual carousel" data-images='[
-        "images/excel1.png",
-        "images/excel2.png",
-        "images/excel3.png"
-      ]'></div>
-        <div class="project-body">
-          <div class="project-num">03 — Complete</div>
-          <div class="project-title">Excel Curriculum for Hoa Hue Shelter</div>
-          <p class="project-desc">Designed and led 10 Excel sessions for 20 orphaned students in Ho Chi Minh City,
-            taking them from zero to comfortable with basic excel formulas like SUM/AVERAGE/IF and clear, readable table
-            formatting.</p>
-          <div class="project-tags">
-            <span class="tag">Curriculum Design</span><span class="tag">Microsoft Excel</span><span
-              class="tag">Leadership</span>
-          </div>
-          <a href="https://drive.google.com/drive/folders/1y6OcqOFaXslaixDcJygTSnKuZi5Pe8Ar" target="_blank"
-            rel="noopener" class="project-link">See More Images →</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ---------- EXPERIENCE ---------- -->
-  <section id="experience">
-    <div class="wrap">
-      <div class="sec-label">03 · Experience</div>
-      <h2 class="sec-title display reveal">The <span class="grad-text">Timeline</span></h2>
-      <div class="timeline">
-        <div class="tl-item reveal">
-          <div class="tl-date">Spring 2026 — Present</div>
-          <div class="tl-role">Math Grader</div>
-          <div class="tl-org">MATH205 · Linear Methods, Lehigh University</div>
-          <div class="tl-desc">Grade weekly problem sets for ~300 students on a 6-person team; cut homework return
-            latency by 20% and recognized by the instructor as part of the top-performing grading team this semester.
-          </div>
-        </div>
-        <div class="tl-item reveal">
-          <div class="tl-date">January 2026 — Present</div>
-          <div class="tl-role">Developer</div>
-          <div class="tl-org">STEM Visualization Impact Fellowship, Lehigh University</div>
-          <div class="tl-desc">Build the SINDy equation-discovery module,
-            research and develop a benchmark-driven Data Scouting framework for automated SINDy hyperparameter
-            recommendation,
-            and co-building the CHEM031 chemistry module
-            with 3 other teammates.</div>
-        </div>
-        <div class="tl-item reveal">
-          <div class="tl-date">August 2025 — Present</div>
-          <div class="tl-role">Student Assistant</div>
-          <div class="tl-org">Office of International Students &amp; Scholars, Lehigh University</div>
-          <div class="tl-desc">Advise 100+ international students per semester on documentation and advisor connections;
-            assisted in 10+ on-campus international student events; and
-            helped drive a 15% year-over-year increase in event engagement.</div>
-        </div>
-        <div class="tl-item reveal">
-          <div class="tl-date">March 2024 — May 2025</div>
-          <div class="tl-role">Head of Lesson Planning Committee</div>
-          <div class="tl-org">IT Teaching Project at Hoa Hue Shelter, Ho Chi Minh City</div>
-          <div class="tl-desc">Led a team of 8 mentors operating 12 teaching sessions, designed the IT curriculum, and
-            managed task delegation across the committee.
-            After the program, all the kids know how to use basic excel formulas and able to solve easy-medium level
-            Excel problems.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------- SKILLS ---------- -->
-  <section id="skills">
-    <div class="wrap">
-      <div class="sec-label">04 · Skills</div>
-      <h2 class="sec-title display reveal">Toolkit</h2>
-      <div class="reveal">
-        <div class="skills-block">
-          <div class="skills-cat">Programming Languages</div>
-          <div class="pill-row">
-            <div class="pill">Java</div>
-            <div class="pill">JavaScript</div>
-            <div class="pill">Python</div>
-            <div class="pill">SQL</div>
-            <div class="pill">HTML / CSS</div>
-          </div>
-        </div>
-        <div class="skills-block">
-          <div class="skills-cat">Frameworks &amp; Tools</div>
-          <div class="pill-row">
-            <div class="pill">React Native</div>
-            <div class="pill">Git / GitHub</div>
-            <div class="pill">Microsoft Office Suite</div>
-          </div>
-        </div>
-        <div class="skills-block">
-          <div class="skills-cat">Languages</div>
-          <div class="pill-row">
-            <div class="pill">Vietnamese — Native</div>
-            <div class="pill">English — Fluent</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------- CONTACT ---------- -->
-  <section id="contact" class="contact">
-    <div class="wrap">
-      <div class="sec-label" style="display:block;">05 · Contact</div>
-      <h2 class="contact-title display reveal">Let's Build <span class="grad-text">Something</span></h2>
-      <!-- <a href="mailto:Minhngo190407@gmail.com" class="contact-email">Minhngo190407@gmail.com</a> -->
-
-      <!-- 🔗 Replace the "#" hrefs below with your real GitHub and LinkedIn URLs -->
-      <div class="social-row reveal">
-        <a href="https://github.com/len329lehighedu" target="_blank" rel="noopener" class="social-circle"
-          aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.18 0 1.57-.01 2.84-.01 3.23 0 .3.2.66.79.55A10.52 10.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z" />
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/minhngole1904/" target="_blank" rel="noopener" class="social-circle"
-          aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z" />
-          </svg>
-        </a>
-        <a href="mailto:Minhngo190407@gmail.com" class="social-circle" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2" />
-            <path d="m2 6 10 7L22 6" />
-          </svg>
-        </a>
-        <a href="https://www.facebook.com/meritofapril" target="_blank" rel="noopener" class="social-circle"
-          aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.25h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07Z" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <footer>
-    <span>© 2026 Le Minh Ngo</span>
-    <span>Bethlehem, PA · Ho Chi Minh City, VN</span>
+    <div class="wrap footer-inner">
+      <span>© 2026 Le Minh Ngo</span>
+      <span>Bethlehem, PA · Ho Chi Minh City, VN</span>
+    </div>
   </footer>
 
   <script src="script.js"></script>
