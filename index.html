@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le Minh Ngo — CS &amp; Business, Lehigh University</title>
+  <title>Le Minh Ngo — ML/Data Engineer &amp; Researcher</title>
+  <meta name="description"
+    content="Le Minh Ngo is a Computer Science and Business student at Lehigh University working across machine learning, data engineering, and applied research.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -45,22 +47,23 @@
   <header class="hero" id="top">
     <div class="wrap hero-inner">
       <div class="hero-text">
-        <p class="kicker">Computer Science &amp; Business · Lehigh University</p>
+        <p class="kicker">ML/Data Engineer · Researcher · Lehigh University</p>
         <h1 class="hero-name">Le Minh Ngo</h1>
         <p class="lede reveal">
-          I look at a mess of raw data and see a story waiting to be told. To me, there's nothing more exciting
-          than digging beneath the surface of numbers to uncover the hidden patterns that drive the world.
+          I turn messy, real-world data into models and tools that make complex systems easier to understand —
+          from vaccine allocation and response dynamics to equation discovery.
         </p>
         <div class="hero-links">
           <a href="#work">View work</a>
           <span class="sep">·</span>
           <a href="#contact">Get in touch</a>
+          <span class="sep">·</span>
+          <a href="Resume_LeMinhNgo.pdf" target="_blank" rel="noopener">Résumé</a>
         </div>
       </div>
-      <!-- INSERT AVATAR IMAGE HERE-->
-      <!-- <div class="hero-avatar">
+      <div class="hero-avatar reveal">
         <img src="images/avatar.png" alt="Le Minh Ngo">
-      </div> -->
+      </div>
     </div>
   </header>
 
@@ -87,14 +90,13 @@
         </div>
 
         <div class="about-body reveal">
-          <p>I'm a <a href="https://csb.lehigh.edu/" target="_blank" rel="noopener">Computer Science &amp;
-              Business</a> student at Lehigh University, currently building an equation-discovery module for
-            Lehigh's STEM Visualization platform, grading MATH205 for ~300 students, and supporting international
-            students through Lehigh's OISS.</p>
-          <p>During my time at <a href="https://ptnk.edu.vn/" target="_blank" rel="noopener">VNU – Highschool for
-              the Gifted</a>, I led a volunteer IT curriculum for orphaned students in Ho Chi Minh City — which is
-            where I first learned that good teaching and good software are the same skill: making something
-            complicated feel obvious.</p>
+          <p>I'm pursuing a B.S. in <a href="https://csb.lehigh.edu/" target="_blank" rel="noopener">Computer
+              Science &amp; Business</a> with a minor in Applied Mathematics at Lehigh University. My work sits at
+            the intersection of data engineering, statistical modeling, and machine learning.</p>
+          <p>In Lehigh's Computational Simulation &amp; Network Science Lab, I build data pipelines and baseline
+            models for reinforcement-learning research on oral cholera vaccine allocation. I also develop
+            interactive scientific tools through the STEM Visualization Impact Fellowship and teach Linear
+            Methods as a Math Department teaching assistant.</p>
         </div>
 
         <div class="stat-row reveal">
@@ -103,16 +105,16 @@
             <div class="lbl">Cumulative GPA</div>
           </div>
           <div class="stat">
+            <div class="num" data-count="25">0</div>
+            <div class="lbl">Countries in Vaccine Dataset</div>
+          </div>
+          <div class="stat">
+            <div class="num" data-count="35" data-suffix="M+">0</div>
+            <div class="lbl">Requested–Approved Dose Gap</div>
+          </div>
+          <div class="stat">
             <div class="num" data-count="300">0</div>
-            <div class="lbl">Students Graded / Sem</div>
-          </div>
-          <div class="stat">
-            <div class="num" data-count="100">0</div>
-            <div class="lbl">Int'l Students Advised</div>
-          </div>
-          <div class="stat">
-            <div class="num" data-count="20" data-suffix="%">0</div>
-            <div class="lbl">Faster HW Turnaround</div>
+            <div class="lbl">Students in MATH205</div>
           </div>
         </div>
       </section>
@@ -126,6 +128,36 @@
 
         <!-- Project 1 -->
         <article class="project reveal">
+          <div class="project-visual research-preview" aria-label="Oral cholera vaccine research pipeline">
+            <div class="research-preview-top">
+              <span>25 countries</span>
+              <span>78 months</span>
+              <span>1,950 observations</span>
+            </div>
+            <div class="research-preview-flow">
+              <span>Outbreaks</span><i>+</i><span>OCV records</span><i>→</i><span>Panel model</span>
+            </div>
+            <div class="research-preview-result">
+              <small>Primary finding</small>
+              <strong>Persistent burden mattered more than short-term change.</strong>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">01 — Research in progress</div>
+            <h3 class="project-title">Modeling Oral Cholera Vaccine Request Behavior</h3>
+            <p class="project-desc">Reconstructed outbreak, vaccine request, decision, and delivery records across
+              25 African countries into a balanced country-month panel. Used between/within decomposition,
+              logistic regression, and small-cluster bootstrap inference to study whether reactive requests tracked
+              changing cholera burden.</p>
+            <div class="project-tags">
+              <span>Python</span><span>pandas</span><span>Panel Data</span><span>Logistic Regression</span>
+            </div>
+            <a href="research.html" class="project-link">View research case study →</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project reveal">
           <div class="project-visual carousel" data-images='[
             "images/train.png",
             "images/test.png",
@@ -133,7 +165,7 @@
             "images/ensemble.png"
           ]'></div>
           <div class="project-body">
-            <div class="project-meta">01 — In progress</div>
+            <div class="project-meta">02 — Deploying soon</div>
             <h3 class="project-title">SINDy Equation-Discovery Module</h3>
             <p class="project-desc">A module for Lehigh's STEM Visualization Impact Fellowship that lets
               researchers feed in raw data and get back the governing equation behind it, using Sparse
@@ -146,15 +178,16 @@
           </div>
         </article>
 
-        <!-- Project 2 -->
+        <!-- Project 3 -->
         <article class="project reveal">
-          <div class="project-visual carousel" data-images='[
-            "images/chem_1.png",
-            "images/chem_2.png",
-            "images/chem_3.png"
-          ]'></div>
+          <div class="project-visual project-placeholder" aria-label="CHEM031 module preview">
+            <span class="project-placeholder-code">CHEM 031</span>
+            <strong>Ideal gases</strong>
+            <span class="project-placeholder-divider">×</span>
+            <strong>Recycling systems</strong>
+          </div>
           <div class="project-body">
-            <div class="project-meta">02 — In progress</div>
+            <div class="project-meta">03 — In progress</div>
             <h3 class="project-title">CHEM031 Interactive Chemistry Module</h3>
             <p class="project-desc">Co-built with 3 teammates: an interactive teaching tool covering ideal gas
               laws and recycling systems for Lehigh's CHEM031, designed to reach 200–300 students every semester
@@ -166,7 +199,7 @@
           </div>
         </article>
 
-        <!-- Project 3 -->
+        <!-- Project 4 -->
         <article class="project reveal">
           <div class="project-visual carousel" data-images='[
             "images/excel1.png",
@@ -174,7 +207,7 @@
             "images/excel3.png"
           ]'></div>
           <div class="project-body">
-            <div class="project-meta">03 — Complete</div>
+            <div class="project-meta">04 — Complete</div>
             <h3 class="project-title">Excel Curriculum for Hoa Hue Shelter</h3>
             <p class="project-desc">Designed and led 10 Excel sessions for 20 orphaned students in Ho Chi Minh
               City, taking them from zero to comfortable with basic Excel formulas like SUM/AVERAGE/IF and clear,
@@ -197,36 +230,37 @@
 
         <div class="timeline">
           <div class="tl-item reveal">
-            <div class="tl-date">Spring 2026 — Present</div>
-            <div class="tl-role">Math Grader</div>
-            <div class="tl-org">MATH205 · Linear Methods, Lehigh University</div>
-            <p class="tl-desc">Grade weekly problem sets for ~300 students on a 6-person team; cut homework
-              return latency by 20% and recognized by the instructor as part of the top-performing grading team
-              this semester.</p>
+            <div class="tl-date">August 2026 — Present</div>
+            <div class="tl-role">Undergraduate Researcher</div>
+            <div class="tl-org">Computational Simulation &amp; Network Science Lab · Lehigh University</div>
+            <p class="tl-desc">Built a Python and pandas ETL pipeline across oral cholera vaccine outbreak,
+              request, and delivery records from 25 African countries. Engineered an RL-ready state-action dataset,
+              modeled baseline response dynamics, resolved data-quality issues, and investigated a 35M+ dose gap
+              between requested and approved vaccines.</p>
           </div>
           <div class="tl-item reveal">
             <div class="tl-date">January 2026 — Present</div>
-            <div class="tl-role">Developer</div>
+            <div class="tl-role">ML/Data Engineer</div>
             <div class="tl-org">STEM Visualization Impact Fellowship, Lehigh University</div>
-            <p class="tl-desc">Build the SINDy equation-discovery module, research and develop a
-              benchmark-driven Data Scouting framework for automated SINDy hyperparameter recommendation, and
-              co-build the CHEM031 chemistry module with 3 other teammates.</p>
+            <p class="tl-desc">Engineer a SINDy-based equation-discovery module with Python and Bokeh for public
+              release, apply statistical methods to model linear and periodic systems, and co-develop an
+              interactive chemistry module projected to reach 200–300 students each semester.</p>
           </div>
           <div class="tl-item reveal">
-            <div class="tl-date">August 2025 — Present</div>
+            <div class="tl-date">January 2026 — Present</div>
+            <div class="tl-role">Teaching Assistant</div>
+            <div class="tl-org">MATH205 · Linear Methods, Lehigh University</div>
+            <p class="tl-desc">Evaluate weekly problem sets for a 300-student course as part of a 6-person team,
+              achieving a 0% homework-latency rate for the first time in two years. Mentor students on
+              diagonalization, eigenvalue decomposition, change of basis, and differential-equation systems.</p>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-date">August 2025 — September 2026</div>
             <div class="tl-role">Student Assistant</div>
             <div class="tl-org">Office of International Students &amp; Scholars, Lehigh University</div>
-            <p class="tl-desc">Advise 100+ international students per semester on documentation and advisor
-              connections; assisted in 10+ on-campus international student events; helped drive a 15%
-              year-over-year increase in event engagement.</p>
-          </div>
-          <div class="tl-item reveal">
-            <div class="tl-date">March 2024 — May 2025</div>
-            <div class="tl-role">Head of Lesson Planning Committee</div>
-            <div class="tl-org">IT Teaching Project at Hoa Hue Shelter, Ho Chi Minh City</div>
-            <p class="tl-desc">Led a team of 8 mentors operating 12 teaching sessions, designed the IT
-              curriculum, and managed task delegation across the committee. After the program, all the kids knew
-              how to use basic Excel formulas and could solve easy–medium level Excel problems.</p>
+            <p class="tl-desc">Guided 50+ international students to the right academic, work-authorization, and
+              immigration-policy resources; coordinated logistics for 20+ campus-wide international events each
+              year and supported student orientation and integration.</p>
           </div>
         </div>
       </section>
@@ -242,19 +276,20 @@
           <div class="skills-block">
             <div class="skills-cat">Programming Languages</div>
             <div class="token-row">
-              <span>Java</span><span>JavaScript</span><span>Python</span><span>SQL</span><span>HTML / CSS</span>
+              <span>Java</span><span>Python</span><span>SQL</span><span>HTML / CSS / JavaScript</span>
             </div>
           </div>
           <div class="skills-block">
             <div class="skills-cat">Frameworks &amp; Tools</div>
             <div class="token-row">
-              <span>React Native</span><span>Git / GitHub</span><span>Microsoft Office Suite</span>
+              <span>Git / GitHub</span><span>pandas</span><span>statsmodels</span><span>Bokeh</span>
             </div>
           </div>
           <div class="skills-block">
-            <div class="skills-cat">Languages</div>
+            <div class="skills-cat">Methods</div>
             <div class="token-row">
-              <span>Vietnamese — Native</span><span>English — Fluent</span>
+              <span>Panel Data</span><span>Hazard Modeling</span><span>Logistic Regression</span><span>GEE</span>
+              <span>Mixed-Effects Models</span><span>Observational Study Design</span>
             </div>
           </div>
         </div>
@@ -270,7 +305,7 @@
         <p class="lede reveal">Let's build something.</p>
 
         <div class="contact-row reveal">
-          <a href="mailto:Minhngo190407@gmail.com" class="contact-email">Minhngo190407@gmail.com</a>
+          <a href="mailto:len329@lehigh.edu" class="contact-email">len329@lehigh.edu</a>
         </div>
 
         <div class="social-row reveal">

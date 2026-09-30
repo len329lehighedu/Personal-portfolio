@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCV Request Behavior Research — Le Minh Ngo</title>
+  <meta name="description"
+    content="A research case study on oral cholera vaccine request behavior across 25 African countries, including data reconstruction, panel modeling, and robustness analysis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="case-topbar">
+    <div class="wrap topbar-inner">
+      <a href="index.html#work" class="case-back">← Back to selected work</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4" />
+          <path
+            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <header class="case-hero">
+    <div class="wrap">
+      <p class="case-eyebrow">Undergraduate Research · Work in progress · 2026</p>
+      <h1 class="case-title">Modeling Oral Cholera Vaccine Request Behavior</h1>
+      <p class="case-intro">Do reactive vaccine requests respond to short-term changes in cholera burden, or do
+        they primarily reflect persistent differences between countries?</p>
+      <p class="case-note">This page summarizes ongoing research in Lehigh University's Computational Simulation
+        &amp; Network Science Lab. Results are preliminary and may change as the research document is revised.</p>
+
+      <div class="case-stats">
+        <div class="case-stat"><strong>25</strong><span>African countries</span></div>
+        <div class="case-stat"><strong>78</strong><span>Months in the full panel</span></div>
+        <div class="case-stat"><strong>1,950</strong><span>Country-month observations</span></div>
+        <div class="case-stat"><strong>99,999</strong><span>Bootstrap replications</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="case-main">
+    <section class="case-section reveal">
+      <p class="case-label">01 · Context</p>
+      <h2>Reconstructing the path from outbreaks to vaccine requests</h2>
+      <div class="case-copy">
+        <p>The global oral cholera vaccine stockpile supports preventive and reactive campaigns, but request,
+          approval, and delivery records do not arrive as one analysis-ready dataset. The study links outbreak
+          histories to vaccine requests across 25 countries from July 2013 through December 2019.</p>
+        <p>My work focused on building and validating the data pipeline, resolving inconsistent identifiers and
+          timestamps, engineering lagged burden features, and producing datasets for statistical modeling and
+          downstream reinforcement-learning research.</p>
+      </div>
+
+      <div class="pipeline" aria-label="Research data pipeline">
+        <div class="pipeline-node"><small>Source 01</small><strong>Cholera outbreak records</strong></div>
+        <span class="pipeline-arrow">+</span>
+        <div class="pipeline-node"><small>Source 02</small><strong>Requests, decisions &amp; deliveries</strong></div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-node"><small>Construction</small><strong>Balanced country-month panel</strong></div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-node"><small>Analysis</small><strong>Between / within decomposition</strong></div>
+      </div>
+    </section>
+
+    <section class="case-section reveal">
+      <p class="case-label">02 · Data construction</p>
+      <h2>A balanced panel that keeps both action and inaction visible</h2>
+      <div class="case-copy">
+        <p>The full panel contains 25 countries over 78 months. Countries that never submitted a request remain in
+          the data: excluding them would condition the sample on the outcome itself and remove meaningful months in
+          which a country had the opportunity to request vaccine but did not.</p>
+        <p>The 12-month burden specification uses a common estimation sample of 1,650 observations after allowing
+          each country a full year of historical context.</p>
+      </div>
+
+      <div class="method-grid">
+        <article class="method-card">
+          <h3>Independent reconstruction</h3>
+          <p>Rebuilt request-level records from original public sources because the comparison study's underlying
+            dataset was unavailable.</p>
+        </article>
+        <article class="method-card">
+          <h3>External validation</h3>
+          <p>Reconciled the reconstructed data against published summary statistics, matching 576 outbreaks and
+            nearly every reported outbreak indicator.</p>
+        </article>
+        <article class="method-card">
+          <h3>Event normalization</h3>
+          <p>Linked multiple delivery rounds to their requests and standardized request, decision, approval, and
+            delivery dates.</p>
+        </article>
+        <article class="method-card">
+          <h3>Feature engineering</h3>
+          <p>Created cumulative-burden windows and separated each country's long-run average from monthly deviation
+            around that average.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="case-section reveal">
+      <p class="case-label">03 · Study design</p>
+      <h2>Separating persistent cross-country differences from short-term change</h2>
+      <div class="case-copy">
+        <p>The primary outcome equals one when a country submitted at least one request classified as reactive in a
+          given month. Logistic regression estimates two distinct associations: a between-country component for a
+          country's average burden, and a within-country component for monthly deviation from its own average.</p>
+      </div>
+
+      <div class="method-grid">
+        <article class="method-card">
+          <h3>Repeated observations</h3>
+          <p>Inference is clustered by country to account for repeated monthly observations within the same
+            country.</p>
+        </article>
+        <article class="method-card">
+          <h3>Small-cluster inference</h3>
+          <p>Wild cluster bootstrap p-values use 99,999 replications because conventional clustered inference can be
+            unreliable with only 22–25 clusters.</p>
+        </article>
+        <article class="method-card">
+          <h3>Multiple time windows</h3>
+          <p>Robustness checks repeat the analysis across 1-, 3-, 6-, and 12-month cumulative burden windows.</p>
+        </article>
+        <article class="method-card">
+          <h3>Sensitivity analysis</h3>
+          <p>Models are re-estimated after progressively excluding the countries that received the most vaccine.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="case-section reveal">
+      <p class="case-label">04 · Primary results</p>
+      <h2>Persistent burden was more informative than short-term deviation</h2>
+      <div class="finding-grid">
+        <article class="finding-card primary">
+          <span class="result-label">Between countries</span>
+          <strong class="result-value">β 0.192</strong>
+          <h3>Positive association detected</h3>
+          <p>95% CI [0.118, 0.265]; wild cluster bootstrap p = 0.00044.</p>
+        </article>
+        <article class="finding-card">
+          <span class="result-label">Within countries</span>
+          <strong class="result-value">β 0.042</strong>
+          <h3>No association detected</h3>
+          <p>95% CI [-0.065, 0.148]; wild cluster bootstrap p = 0.46057.</p>
+        </article>
+      </div>
+      <div class="case-copy" style="margin-top: 28px;">
+        <p>Countries with higher long-run recorded cholera burden were more likely to submit reactive requests. The
+          study did not detect a corresponding increase during months when a country's recent burden rose above its
+          own usual level. A null result does not establish that short-term responsiveness is absent.</p>
+      </div>
+    </section>
+
+    <section class="case-section reveal">
+      <p class="case-label">05 · Data reconciliation</p>
+      <h2>Explaining a 35.1 million-dose discrepancy</h2>
+      <div class="case-copy">
+        <p>The reconstructed records contain 89.09 million requested doses and 53.99 million approved doses. The
+          difference can be decomposed into requests not approved, cancelled requests, records without a decision,
+          and partial approvals.</p>
+      </div>
+
+      <div class="dose-flow" aria-label="89.09 million requested doses minus a 35.10 million gap equals 53.99 million approved doses">
+        <div class="dose-block"><strong>89.09M</strong><span>Requested</span></div>
+        <div class="dose-gap"><strong>−35.10M</strong>Not approved, cancelled,<br>no decision, or partial shortfall</div>
+        <div class="dose-block"><strong>53.99M</strong><span>Approved</span></div>
+      </div>
+    </section>
+
+    <section class="case-section reveal">
+      <p class="case-label">06 · Interpretation</p>
+      <h2>What this analysis can — and cannot — establish</h2>
+      <div class="case-copy">
+        <p>The result points toward persistent differences between countries, potentially including surveillance,
+          administrative capacity, institutional access, or reporting practices. Those mechanisms are plausible
+          explanations, not measured causal effects.</p>
+      </div>
+      <ul class="case-list">
+        <li>The ecological country-month design does not link individual outbreaks to specific requests.</li>
+        <li>The analysis cannot estimate outbreak-to-request latency or judge whether a request was timely.</li>
+        <li>Twenty-five country clusters and 58 reactive request-months limit statistical precision.</li>
+        <li>Results from 2014–2019 should not be assumed to represent the post-2020 vaccine environment.</li>
+        <li>The associations should not be used as an automated vaccine-allocation rule.</li>
+      </ul>
+    </section>
+
+    <section class="case-section case-cta reveal">
+      <div>
+        <p class="case-label">Next project</p>
+        <h2>SINDy Equation-Discovery Module</h2>
+      </div>
+      <a href="index.html#work">Return to selected work →</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© 2026 Le Minh Ngo</span>
+      <span>Research summary · Work in progress</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
