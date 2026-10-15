@@ -51,7 +51,7 @@
         <h1 class="hero-name">Minh Ngo Le</h1>
         <p class="lede reveal">
           I turn messy, real-world data into models and tools that make complex systems easier to understand —
-          from vaccine allocation and response dynamics to equation discovery.
+          from recorded outbreak activity and reactive vaccine requests to equation discovery.
         </p>
         <div class="hero-links">
           <a href="#work">View work</a>
@@ -93,10 +93,10 @@
           <p>I'm pursuing a B.S. in <a href="https://csb.lehigh.edu/" target="_blank" rel="noopener">Computer
               Science &amp; Business</a> with a minor in Applied Mathematics at Lehigh University. My work sits at
             the intersection of data engineering, statistical modeling, and machine learning.</p>
-          <p>In Lehigh's Computational Simulation &amp; Network Science Lab, I build data pipelines and baseline
-            models for reinforcement-learning research on oral cholera vaccine allocation. I also develop
-            interactive scientific tools through the STEM Visualization Impact Fellowship and teach Linear
-            Methods as a Math Department teaching assistant.</p>
+          <p>In Lehigh's Computational Simulation &amp; Network Science Lab, I study whether reactive oral cholera
+            vaccine request-months are associated with countries' usual level of recorded outbreak activity or
+            with increases within a country over time. I also develop interactive scientific tools through the
+            STEM Visualization Impact Fellowship and teach Linear Methods as a Math Department teaching assistant.</p>
         </div>
 
         <div class="stat-row reveal">
@@ -109,12 +109,12 @@
             <div class="lbl">Countries in Vaccine Dataset</div>
           </div>
           <div class="stat">
-            <div class="num" data-count="35" data-suffix="M+">0</div>
-            <div class="lbl">Requested–Approved Dose Gap</div>
+            <div class="num" data-count="1650" data-suffix="">0</div>
+            <div class="lbl">Country-months Analyzed</div>
           </div>
           <div class="stat">
-            <div class="num" data-count="300">0</div>
-            <div class="lbl">Students in MATH205</div>
+            <div class="num" data-count="58">0</div>
+            <div class="lbl">Reactive Request-months</div>
           </div>
         </div>
       </section>
@@ -128,29 +128,20 @@
 
         <!-- Project 1 -->
         <article class="project reveal">
-          <div class="project-visual research-preview" aria-label="Oral cholera vaccine research pipeline">
-            <div class="research-preview-top">
-              <span>25 countries</span>
-              <span>78 months</span>
-              <span>1,950 observations</span>
-            </div>
-            <div class="research-preview-flow">
-              <span>Outbreaks</span><i>+</i><span>OCV records</span><i>→</i><span>Panel model</span>
-            </div>
-            <div class="research-preview-result">
-              <small>Primary finding</small>
-              <strong>Persistent burden mattered more than short-term change.</strong>
-            </div>
-          </div>
+          <div class="project-visual carousel research-carousel" data-images='[
+            "images/ocv-figure-1a.png",
+            "images/ocv-figure-1b.png",
+            "images/ocv-figure-2.png"
+          ]'></div>
           <div class="project-body">
-            <div class="project-meta">01 — Research in progress</div>
-            <h3 class="project-title">Modeling Oral Cholera Vaccine Request Behavior</h3>
-            <p class="project-desc">Reconstructed outbreak, vaccine request, decision, and delivery records across
-              25 African countries into a balanced country-month panel. Used between/within decomposition,
-              logistic regression, and small-cluster bootstrap inference to study whether reactive requests tracked
-              changing cholera burden.</p>
+            <div class="project-meta">01 — Manuscript in preparation</div>
+            <h3 class="project-title">Recorded Outbreak Activity and Reactive OCV Requests</h3>
+            <p class="project-desc">We examined whether reactive request-months were associated with countries'
+              usual level of recorded outbreak activity or with increases within a country over time across 25
+              African countries. The analysis estimates associations; it does not link individual outbreaks to
+              requests or measure outbreak-to-request delay.</p>
             <div class="project-tags">
-              <span>Python</span><span>pandas</span><span>Panel Data</span><span>Logistic Regression</span>
+              <span>Country-month Panel</span><span>Logistic Regression</span><span>Wild Cluster Bootstrap</span>
             </div>
             <a href="research.html" class="project-link">View research case study →</a>
           </div>
@@ -233,10 +224,10 @@
             <div class="tl-date">August 2026 — Present</div>
             <div class="tl-role">Undergraduate Researcher</div>
             <div class="tl-org">Computational Simulation &amp; Network Science Lab · Lehigh University</div>
-            <p class="tl-desc">Built a Python and pandas ETL pipeline across oral cholera vaccine outbreak,
-              request, and delivery records from 25 African countries. Engineered an RL-ready state-action dataset,
-              modeled baseline response dynamics, resolved data-quality issues, and investigated a 35M+ dose gap
-              between requested and approved vaccines.</p>
+            <p class="tl-desc">Analyzed 1,650 country-months across 25 African countries to distinguish associations
+              with persistent between-country differences in recorded outbreak activity from changes within a
+              country over time. Used logistic models with country-clustered confidence intervals, wild cluster
+              bootstrap p-values, robustness checks, and exploratory sensitivity models.</p>
           </div>
           <div class="tl-item reveal">
             <div class="tl-date">January 2026 — Present</div>

@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OCV Request Behavior Research — Minh Ngo Le</title>
+  <title>Recorded Outbreak Activity and Reactive OCV Requests — Minh Ngo Le</title>
   <meta name="description"
-    content="A research case study on oral cholera vaccine request behavior across 25 African countries, including data reconstruction, panel modeling, and robustness analysis.">
+    content="A concise summary of ongoing research examining associations between recorded cholera outbreak activity and reactive oral cholera vaccine request-months across 25 African countries.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -43,17 +43,17 @@
 
   <header class="case-hero">
     <div class="wrap">
-      <p class="case-eyebrow">Undergraduate Research · Work in progress · 2026</p>
-      <h1 class="case-title">Modeling Oral Cholera Vaccine Request Behavior</h1>
-      <p class="case-intro">Do reactive vaccine requests respond to short-term changes in cholera burden, or do
-        they primarily reflect persistent differences between countries?</p>
-      <p class="case-note">This page summarizes ongoing research in Lehigh University's Computational Simulation
-        &amp; Network Science Lab. Results are preliminary and may change as the research document is revised.</p>
+      <p class="case-eyebrow">Working manuscript · 2026</p>
+      <h1 class="case-title">Recorded Outbreak Activity and Reactive OCV Requests</h1>
+      <p class="case-intro">Emergency access to the global oral cholera vaccine stockpile requires a formal
+        request before approval and delivery.</p>
+      <p class="case-note">This page presents a concise summary of a manuscript in preparation. If the paper is
+        published, a link to the publication will be added here.</p>
 
       <div class="case-stats">
         <div class="case-stat"><strong>25</strong><span>African countries</span></div>
-        <div class="case-stat"><strong>78</strong><span>Months in the full panel</span></div>
-        <div class="case-stat"><strong>1,950</strong><span>Country-month observations</span></div>
+        <div class="case-stat"><strong>1,650</strong><span>Country-months</span></div>
+        <div class="case-stat"><strong>58</strong><span>Reactive request-months</span></div>
         <div class="case-stat"><strong>99,999</strong><span>Bootstrap replications</span></div>
       </div>
     </div>
@@ -61,149 +61,107 @@
 
   <main class="case-main">
     <section class="case-section reveal">
-      <p class="case-label">01 · Context</p>
-      <h2>Reconstructing the path from outbreaks to vaccine requests</h2>
+      <p class="case-label">01 · Background</p>
+      <h2>Usual recorded activity or increases within a country?</h2>
       <div class="case-copy">
-        <p>The global oral cholera vaccine stockpile supports preventive and reactive campaigns, but request,
-          approval, and delivery records do not arrive as one analysis-ready dataset. The study links outbreak
-          histories to vaccine requests across 25 countries from July 2013 through December 2019.</p>
-        <p>My work focused on building and validating the data pipeline, resolving inconsistent identifiers and
-          timestamps, engineering lagged burden features, and producing datasets for statistical modeling and
-          downstream reinforcement-learning research.</p>
-      </div>
-
-      <div class="pipeline" aria-label="Research data pipeline">
-        <div class="pipeline-node"><small>Source 01</small><strong>Cholera outbreak records</strong></div>
-        <span class="pipeline-arrow">+</span>
-        <div class="pipeline-node"><small>Source 02</small><strong>Requests, decisions &amp; deliveries</strong></div>
-        <span class="pipeline-arrow">→</span>
-        <div class="pipeline-node"><small>Construction</small><strong>Balanced country-month panel</strong></div>
-        <span class="pipeline-arrow">→</span>
-        <div class="pipeline-node"><small>Analysis</small><strong>Between / within decomposition</strong></div>
+        <p>Whether reactive requests are associated with countries' usual level of recorded outbreak activity or
+          with increases within a country over time remains unclear. We examined these distinct associations across
+          25 African countries.</p>
+        <p>The request is a distinct stage before approval, shipment, and vaccination. The analysis estimates
+          associations; it does not link individual outbreaks to requests or measure outbreak-to-request delay.</p>
       </div>
     </section>
 
     <section class="case-section reveal">
-      <p class="case-label">02 · Data construction</p>
-      <h2>A balanced panel that keeps both action and inaction visible</h2>
+      <p class="case-label">02 · Methods</p>
+      <h2>A country-month analysis of recorded outbreak activity</h2>
       <div class="case-copy">
-        <p>The full panel contains 25 countries over 78 months. Countries that never submitted a request remain in
-          the data: excluding them would condition the sample on the outcome itself and remove meaningful months in
-          which a country had the opportunity to request vaccine but did not.</p>
-        <p>The 12-month burden specification uses a common estimation sample of 1,650 observations after allowing
-          each country a full year of historical context.</p>
+        <p>We linked recorded cholera outbreak intervals with OCV requests in a country-month panel from July 2014
+          to December 2019. For each country-month, we summed the number of recorded outbreaks active in each of the
+          preceding 12 months, yielding a measure of outbreak-months rather than case counts.</p>
+        <p>We log-transformed this measure and separated each country's average from monthly deviations around that
+          average. The outcome was at least one dashboard-classified reactive request in a month.</p>
       </div>
 
-      <div class="method-grid">
+      <div class="method-grid summary-methods">
         <article class="method-card">
-          <h3>Independent reconstruction</h3>
-          <p>Rebuilt request-level records from original public sources because the comparison study's underlying
-            dataset was unavailable.</p>
+          <h3>Primary model</h3>
+          <p>Logistic regression with between-country and within-country components included together.</p>
         </article>
         <article class="method-card">
-          <h3>External validation</h3>
-          <p>Reconciled the reconstructed data against published summary statistics, matching 576 outbreaks and
-            nearly every reported outbreak indicator.</p>
+          <h3>Inference</h3>
+          <p>Country-clustered asymptotic 95% confidence intervals and wild cluster bootstrap p-values.</p>
         </article>
         <article class="method-card">
-          <h3>Event normalization</h3>
-          <p>Linked multiple delivery rounds to their requests and standardized request, decision, approval, and
-            delivery dates.</p>
+          <h3>Robustness</h3>
+          <p>Predictor windows of 1, 3, 6, and 12 months across 25-, 23-, and 22-country samples.</p>
         </article>
         <article class="method-card">
-          <h3>Feature engineering</h3>
-          <p>Created cumulative-burden windows and separated each country's long-run average from monthly deviation
-            around that average.</p>
+          <h3>Sensitivity</h3>
+          <p>Exploratory models added baseline country-level covariates separately.</p>
         </article>
       </div>
     </section>
 
     <section class="case-section reveal">
-      <p class="case-label">03 · Study design</p>
-      <h2>Separating persistent cross-country differences from short-term change</h2>
-      <div class="case-copy">
-        <p>The primary outcome equals one when a country submitted at least one request classified as reactive in a
-          given month. Logistic regression estimates two distinct associations: a between-country component for a
-          country's average burden, and a within-country component for monthly deviation from its own average.</p>
-      </div>
-
-      <div class="method-grid">
-        <article class="method-card">
-          <h3>Repeated observations</h3>
-          <p>Inference is clustered by country to account for repeated monthly observations within the same
-            country.</p>
-        </article>
-        <article class="method-card">
-          <h3>Small-cluster inference</h3>
-          <p>Wild cluster bootstrap p-values use 99,999 replications because conventional clustered inference can be
-            unreliable with only 22–25 clusters.</p>
-        </article>
-        <article class="method-card">
-          <h3>Multiple time windows</h3>
-          <p>Robustness checks repeat the analysis across 1-, 3-, 6-, and 12-month cumulative burden windows.</p>
-        </article>
-        <article class="method-card">
-          <h3>Sensitivity analysis</h3>
-          <p>Models are re-estimated after progressively excluding the countries that received the most vaccine.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="case-section reveal">
-      <p class="case-label">04 · Primary results</p>
-      <h2>Persistent burden was more informative than short-term deviation</h2>
+      <p class="case-label">03 · Results</p>
+      <h2>The association was more evident across countries than within them</h2>
       <div class="finding-grid">
         <article class="finding-card primary">
           <span class="result-label">Between countries</span>
-          <strong class="result-value">β 0.192</strong>
-          <h3>Positive association detected</h3>
-          <p>95% CI [0.118, 0.265]; wild cluster bootstrap p = 0.00044.</p>
+          <strong class="result-value">β 0.443</strong>
+          <h3>Positive association</h3>
+          <p>Asymptotic 95% CI [0.256, 0.630]; wild-cluster bootstrap p &lt; 0.001.</p>
         </article>
         <article class="finding-card">
           <span class="result-label">Within countries</span>
-          <strong class="result-value">β 0.042</strong>
+          <strong class="result-value">β 0.033</strong>
           <h3>No association detected</h3>
-          <p>95% CI [-0.065, 0.148]; wild cluster bootstrap p = 0.46057.</p>
+          <p>Asymptotic 95% CI [−0.204, 0.270]; wild-cluster bootstrap p = 0.792.</p>
         </article>
       </div>
-      <div class="case-copy" style="margin-top: 28px;">
-        <p>Countries with higher long-run recorded cholera burden were more likely to submit reactive requests. The
-          study did not detect a corresponding increase during months when a country's recent burden rose above its
-          own usual level. A null result does not establish that short-term responsiveness is absent.</p>
+
+      <div class="paper-finding reveal">
+        <strong>22 of 58</strong>
+        <p>reactive request-months had no recorded active outbreak-months in the preceding 12 calendar months.</p>
+      </div>
+
+      <div class="case-copy">
+        <p>Countries with higher average recorded outbreak activity had more months with a reactive OCV request. We
+          did not detect an association between monthly deviations from a country's usual outbreak activity and
+          reactive requests. This result does not establish the absence of within-country responsiveness.</p>
+        <p>The between-country estimate remained positive but attenuated when DR Congo, South Sudan, and Nigeria
+          were excluded and remained positive after separate covariate adjustments.</p>
       </div>
     </section>
 
     <section class="case-section reveal">
-      <p class="case-label">05 · Data reconciliation</p>
-      <h2>Explaining a 35.1 million-dose discrepancy</h2>
+      <p class="case-label">04 · Interpretation</p>
+      <h2>Recorded activity is not the same as information available in real time</h2>
       <div class="case-copy">
-        <p>The reconstructed records contain 89.09 million requested doses and 53.99 million approved doses. The
-          difference can be decomposed into requests not approved, cancelled requests, records without a decision,
-          and partial approvals.</p>
-      </div>
-
-      <div class="dose-flow" aria-label="89.09 million requested doses minus a 35.10 million gap equals 53.99 million approved doses">
-        <div class="dose-block"><strong>89.09M</strong><span>Requested</span></div>
-        <div class="dose-gap"><strong>−35.10M</strong>Not approved, cancelled,<br>no decision, or partial shortfall</div>
-        <div class="dose-block"><strong>53.99M</strong><span>Approved</span></div>
-      </div>
-    </section>
-
-    <section class="case-section reveal">
-      <p class="case-label">06 · Interpretation</p>
-      <h2>What this analysis can — and cannot — establish</h2>
-      <div class="case-copy">
-        <p>The result points toward persistent differences between countries, potentially including surveillance,
-          administrative capacity, institutional access, or reporting practices. Those mechanisms are plausible
-          explanations, not measured causal effects.</p>
+        <p>Reactive request-months were associated with persistent differences in recorded outbreak activity between
+          countries; a corresponding within-country association was not detected.</p>
+        <p>Incomplete temporal overlap between recorded outbreak activity and reactive request-months limits
+          interpretation of the within-country result. The recorded outbreak-activity series should not be assumed
+          to reproduce the information available to a ministry of health when a request was prepared.</p>
       </div>
       <ul class="case-list">
-        <li>The ecological country-month design does not link individual outbreaks to specific requests.</li>
-        <li>The analysis cannot estimate outbreak-to-request latency or judge whether a request was timely.</li>
-        <li>Twenty-five country clusters and 58 reactive request-months limit statistical precision.</li>
-        <li>Results from 2014–2019 should not be assumed to represent the post-2020 vaccine environment.</li>
-        <li>The associations should not be used as an automated vaccine-allocation rule.</li>
+        <li>The analysis cannot link a request to the outbreak or location it was intended to address.</li>
+        <li>Country-month aggregation can conceal highly localized cholera activity.</li>
+        <li>The panel contains only 25 country clusters and 58 reactive request-months.</li>
+        <li>The estimates are associations; they are not causal.</li>
+        <li>The 2014–2019 findings should not automatically be generalized to the later stockpile environment.</li>
       </ul>
+    </section>
+
+    <section class="case-section publication-section reveal">
+      <p class="case-label">05 · Publication</p>
+      <h2>Manuscript in preparation</h2>
+      <div class="case-copy">
+        <p>Research linking individual requests to outbreaks and to the information available when requests were
+          prepared is needed to assess response timing directly.</p>
+      </div>
+      <span class="publication-pending" aria-label="Publication link forthcoming">Publication link forthcoming</span>
     </section>
 
     <section class="case-section case-cta reveal">
@@ -218,7 +176,7 @@
   <footer>
     <div class="wrap footer-inner">
       <span>© 2026 Minh Ngo Le</span>
-      <span>Research summary · Work in progress</span>
+      <span>Research summary · Manuscript in preparation</span>
     </div>
   </footer>
 
