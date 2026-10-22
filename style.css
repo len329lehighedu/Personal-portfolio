@@ -624,12 +624,26 @@ footer span,
   background: #fff;
 }
 
+.chem-carousel .carousel-track img {
+  object-fit: contain;
+  background: #fff;
+}
+
 .research-carousel .carousel-dot {
   background: rgba(20, 20, 20, .28);
   border-color: rgba(20, 20, 20, .22);
 }
 
+.chem-carousel .carousel-dot {
+  background: rgba(20, 20, 20, .28);
+  border-color: rgba(20, 20, 20, .22);
+}
+
 .research-carousel .carousel-dot.active {
+  background: #141414;
+}
+
+.chem-carousel .carousel-dot.active {
   background: #141414;
 }
 
