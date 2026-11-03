@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recorded Outbreak Activity and Reactive OCV Requests — Minh Ngo Le</title>
+  <title>Reactive OCV Requests Across and Within Countries — Minh Ngo Le</title>
   <meta name="description"
-    content="A concise summary of ongoing research examining associations between recorded cholera outbreak activity and reactive oral cholera vaccine request-months across 25 African countries.">
+    content="A concise summary of first-author research submitted to Vaccine on reactive oral cholera vaccine requests and recorded outbreak activity across 25 African countries.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -43,18 +43,20 @@
 
   <header class="case-hero">
     <div class="wrap">
-      <p class="case-eyebrow">Working manuscript · 2026</p>
-      <h1 class="case-title">Recorded Outbreak Activity and Reactive OCV Requests</h1>
+      <p class="case-eyebrow">First-author research · Submitted to Vaccine · 2026</p>
+      <h1 class="case-title research-title">Reactive oral cholera vaccine requests are more strongly associated with recorded
+        outbreak activity between countries than within countries</h1>
       <p class="case-intro">Emergency access to the global oral cholera vaccine stockpile requires a formal
-        request before approval and delivery.</p>
-      <p class="case-note">This page presents a concise summary of a manuscript in preparation. If the paper is
-        published, a link to the publication will be added here.</p>
+        request. We examined whether reactive requests are associated with average outbreak activity across
+        countries or deviations within countries.</p>
+      <p class="case-note">This page presents a concise summary of the manuscript submitted to <em>Vaccine</em>.
+        The article is under review; a publication link will be added if it becomes available.</p>
 
       <div class="case-stats">
         <div class="case-stat"><strong>25</strong><span>African countries</span></div>
         <div class="case-stat"><strong>1,650</strong><span>Country-months</span></div>
         <div class="case-stat"><strong>58</strong><span>Reactive request-months</span></div>
-        <div class="case-stat"><strong>99,999</strong><span>Bootstrap replications</span></div>
+        <div class="case-stat"><strong>22</strong><span>Request-months audited</span></div>
       </div>
     </div>
   </header>
@@ -62,13 +64,14 @@
   <main class="case-main">
     <section class="case-section reveal">
       <p class="case-label">01 · Background</p>
-      <h2>Usual recorded activity or increases within a country?</h2>
+      <h2>Average activity across countries or deviations within countries?</h2>
       <div class="case-copy">
-        <p>Whether reactive requests are associated with countries' usual level of recorded outbreak activity or
-          with increases within a country over time remains unclear. We examined these distinct associations across
-          25 African countries.</p>
-        <p>The request is a distinct stage before approval, shipment, and vaccination. The analysis estimates
-          associations; it does not link individual outbreaks to requests or measure outbreak-to-request delay.</p>
+        <p>Request submission is distinct from approval, shipment, and vaccination. We examined whether reactive
+          requests were associated with countries' average recorded outbreak activity or with months when activity
+          deviated from a country's own average.</p>
+        <p>The analysis estimates associations, not outbreak-to-request delay. Recorded activity also needs to be
+          distinguished from underlying disease burden and from the information available when authorities consider
+          vaccination.</p>
       </div>
     </section>
 
@@ -76,10 +79,10 @@
       <p class="case-label">02 · Methods</p>
       <h2>A country-month analysis of recorded outbreak activity</h2>
       <div class="case-copy">
-        <p>We linked recorded cholera outbreak intervals with OCV requests in a country-month panel from July 2014
-          to December 2019. For each country-month, we summed the number of recorded outbreaks active in each of the
-          preceding 12 months, yielding a measure of outbreak-months rather than case counts.</p>
-        <p>We log-transformed this measure and separated each country's average from monthly deviations around that
+        <p>We linked outbreak records and OCV requests for 25 African countries during July 2013–December 2019. The
+          analysis covered July 2014–December 2019, allowing a 12-month lookback and yielding 1,650 country-months.</p>
+        <p>The predictor summed monthly counts of active outbreak records during the preceding 12 months, excluding
+          the outcome month. We separated each country's average logged activity from monthly deviations around that
           average. The outcome was at least one dashboard-classified reactive request in a month.</p>
       </div>
 
@@ -93,12 +96,12 @@
           <p>Country-clustered asymptotic 95% confidence intervals and wild cluster bootstrap p-values.</p>
         </article>
         <article class="method-card">
-          <h3>Robustness</h3>
-          <p>Predictor windows of 1, 3, 6, and 12 months across 25-, 23-, and 22-country samples.</p>
+          <h3>External audit</h3>
+          <p>Public reports were reviewed for every reactive request-month with no preceding recorded activity.</p>
         </article>
         <article class="method-card">
-          <h3>Sensitivity</h3>
-          <p>Exploratory models added baseline country-level covariates separately.</p>
+          <h3>Robustness</h3>
+          <p>Multiple predictor windows, country samples, leave-one-country-out models, and sensitivity analyses.</p>
         </article>
       </div>
     </section>
@@ -109,29 +112,29 @@
       <div class="finding-grid">
         <article class="finding-card primary">
           <span class="result-label">Between countries</span>
-          <strong class="result-value">β 0.443</strong>
+          <strong class="result-value">OR 1.56</strong>
           <h3>Positive association</h3>
-          <p>Asymptotic 95% CI [0.256, 0.630]; wild-cluster bootstrap p &lt; 0.001.</p>
+          <p>95% CI [1.29, 1.88]; coefficient β = 0.443; wild-cluster bootstrap p &lt; 0.001.</p>
         </article>
         <article class="finding-card">
           <span class="result-label">Within countries</span>
-          <strong class="result-value">β 0.033</strong>
+          <strong class="result-value">OR 1.03</strong>
           <h3>No association detected</h3>
-          <p>Asymptotic 95% CI [−0.204, 0.270]; wild-cluster bootstrap p = 0.792.</p>
+          <p>95% CI [0.82, 1.31]; coefficient β = 0.033; wild-cluster bootstrap p = 0.792.</p>
         </article>
       </div>
 
       <div class="paper-finding reveal">
-        <strong>22 of 58</strong>
-        <p>reactive request-months had no recorded active outbreak-months in the preceding 12 calendar months.</p>
+        <strong>17 of 22</strong>
+        <p>audited request-months had external reports documenting cholera activity within the same country and
+          preceding window.</p>
       </div>
 
       <div class="case-copy">
-        <p>Countries with higher average recorded outbreak activity had more months with a reactive OCV request. We
-          did not detect an association between monthly deviations from a country's usual outbreak activity and
-          reactive requests. This result does not establish the absence of within-country responsiveness.</p>
-        <p>The between-country estimate remained positive but attenuated when DR Congo, South Sudan, and Nigeria
-          were excluded and remained positive after separate covariate adjustments.</p>
+        <p>The difference between the between- and within-country coefficients was 0.410 (95% CI [0.170, 0.651];
+          bootstrap p = 0.022), supporting a stronger association between countries than within countries.</p>
+        <p>Between-country odds-ratio intervals excluded 1 in all 25 leave-one-country-out analyses. Within-country
+          intervals included 1 across sensitivity analyses.</p>
       </div>
     </section>
 
@@ -139,14 +142,14 @@
       <p class="case-label">04 · Interpretation</p>
       <h2>Recorded activity is not the same as information available in real time</h2>
       <div class="case-copy">
-        <p>Reactive request-months were associated with persistent differences in recorded outbreak activity between
-          countries; a corresponding within-country association was not detected.</p>
-        <p>Incomplete temporal overlap between recorded outbreak activity and reactive request-months limits
-          interpretation of the within-country result. The recorded outbreak-activity series should not be assumed
-          to reproduce the information available to a ministry of health when a request was prepared.</p>
+        <p>Reactive requests were associated with average recorded activity across countries; a within-country
+          association was not detected. The audit showed that zero activity in the linked series was not equivalent
+          to the absence of documented cholera.</p>
+        <p>Most supporting reports did not identify the specific outbreak or area that motivated a request. The audit
+          identifies differences in what the records capture, not necessarily errors in individual records.</p>
       </div>
       <ul class="case-list">
-        <li>The analysis cannot link a request to the outbreak or location it was intended to address.</li>
+        <li>The analysis cannot generally link a request to the outbreak or location it was intended to address.</li>
         <li>Country-month aggregation can conceal highly localized cholera activity.</li>
         <li>The panel contains only 25 country clusters and 58 reactive request-months.</li>
         <li>The estimates are associations; they are not causal.</li>
@@ -154,14 +157,51 @@
       </ul>
     </section>
 
-    <section class="case-section publication-section reveal">
-      <p class="case-label">05 · Publication</p>
-      <h2>Manuscript in preparation</h2>
+    <section class="case-section reveal">
+      <p class="case-label">05 · My contribution</p>
+      <h2>From data reconstruction to the submitted manuscript</h2>
       <div class="case-copy">
-        <p>Research linking individual requests to outbreaks and to the information available when requests were
-          prepared is needed to assess response timing directly.</p>
+        <p>As first author, I led data curation, formal analysis, investigation, visualization, and the original
+          manuscript draft. I reconstructed the country-month panel from 576 outbreak records and 88 OCV requests,
+          implemented the statistical workflow, and produced the figures and robustness analyses.</p>
+        <p>I also reviewed external documentation for all 22 reactive request-months with zero recorded activity in
+          the preceding year. Finding supporting reports for 17 turned the largest data limitation into a second
+          empirical finding while preserving the limits of request-specific linkage.</p>
       </div>
-      <span class="publication-pending" aria-label="Publication link forthcoming">Publication link forthcoming</span>
+      <div class="method-grid contribution-grid">
+        <article class="method-card">
+          <h3>Data and analysis</h3>
+          <p>Panel reconstruction, between–within modeling, clustered inference, bootstrap tests, and sensitivity
+            analyses.</p>
+        </article>
+        <article class="method-card">
+          <h3>Investigation</h3>
+          <p>A source-by-source audit with explicit evidence categories, correspondence rules, and unresolved
+            uncertainty.</p>
+        </article>
+        <article class="method-card">
+          <h3>Communication</h3>
+          <p>First-author drafting, figure design, journal-format revisions, and integration of iterative research
+            feedback.</p>
+        </article>
+        <article class="method-card">
+          <h3>Reproducibility</h3>
+          <p>Derived datasets, coding documentation, analysis scripts, and plotting code released on Zenodo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="case-section publication-section reveal">
+      <p class="case-label">06 · Publication</p>
+      <h2>Submitted to <em>Vaccine</em></h2>
+      <div class="case-copy">
+        <p>The manuscript is currently under review. A link to the published article will be added here if it becomes
+          available. The reproducibility materials are already public.</p>
+      </div>
+      <div class="publication-links">
+        <a href="https://zenodo.org/records/23897795" target="_blank" rel="noopener">Code and data on Zenodo ↗</a>
+        <span class="publication-pending" aria-label="Publication link forthcoming">Article link forthcoming</span>
+      </div>
     </section>
 
     <section class="case-section case-cta reveal">
@@ -176,7 +216,7 @@
   <footer>
     <div class="wrap footer-inner">
       <span>© 2026 Minh Ngo Le</span>
-      <span>Research summary · Manuscript in preparation</span>
+      <span>Research summary · Submitted to Vaccine</span>
     </div>
   </footer>
 

@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minh Ngo Le — ML/Data Engineer &amp; Researcher</title>
+  <title>Minh Ngo Le — Software Engineer &amp; Researcher</title>
   <meta name="description"
-    content="Minh Ngo Le is a Computer Science and Business student at Lehigh University working across machine learning, data engineering, and applied research.">
+    content="Minh Ngo Le is a Computer Science and Business student at Lehigh University building AI products, scientific tools, and applied research.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -47,11 +47,11 @@
   <header class="hero" id="top">
     <div class="wrap hero-inner">
       <div class="hero-text">
-        <p class="kicker">ML/Data Engineer · Researcher · Lehigh University</p>
+        <p class="kicker">Software Engineer · Researcher · Lehigh University</p>
         <h1 class="hero-name">Minh Ngo Le</h1>
         <p class="lede reveal">
-          I turn messy, real-world data into models and tools that make complex systems easier to understand —
-          from recorded outbreak activity and reactive vaccine requests to equation discovery.
+          I build data-driven systems that make complex decisions easier to understand — from AI advising workflows
+          to vaccine-request research and equation discovery.
         </p>
         <div class="hero-links">
           <a href="#work">View work</a>
@@ -93,10 +93,9 @@
           <p>I'm pursuing a B.S. in <a href="https://csb.lehigh.edu/" target="_blank" rel="noopener">Computer
               Science &amp; Business</a> with a minor in Applied Mathematics at Lehigh University. My work sits at
             the intersection of data engineering, statistical modeling, and machine learning.</p>
-          <p>In Lehigh's Computational Simulation &amp; Network Science Lab, I study whether reactive oral cholera
-            vaccine request-months are associated with countries' usual level of recorded outbreak activity or
-            with increases within a country over time. I also develop interactive scientific tools through the
-            STEM Visualization Impact Fellowship and teach Linear Methods as a Math Department teaching assistant.</p>
+          <p>I build the Lehigh360 AI Advising Hub, conduct first-author research on reactive oral cholera vaccine
+            requests, and develop interactive scientific tools through the STEM Visualization Impact Fellowship. I
+            also teach Linear Methods as a Math Department teaching assistant.</p>
         </div>
 
         <div class="stat-row reveal">
@@ -134,12 +133,11 @@
             "images/ocv-figure-2.png"
           ]'></div>
           <div class="project-body">
-            <div class="project-meta">01 — Manuscript in preparation</div>
-            <h3 class="project-title">Recorded Outbreak Activity and Reactive OCV Requests</h3>
-            <p class="project-desc">We examined whether reactive request-months were associated with countries'
-              usual level of recorded outbreak activity or with increases within a country over time across 25
-              African countries. The analysis estimates associations; it does not link individual outbreaks to
-              requests or measure outbreak-to-request delay.</p>
+            <div class="project-meta">01 — Submitted to Vaccine</div>
+            <h3 class="project-title">Reactive OCV Requests Across and Within Countries</h3>
+            <p class="project-desc">First-authored a study of 1,650 country-months across 25 African countries. The
+              between-country association was stronger than the within-country association; an external-documentation
+              audit also showed that zero activity in the linked series did not imply absence of documented cholera.</p>
             <div class="project-tags">
               <span>Country-month Panel</span><span>Logistic Regression</span><span>Wild Cluster Bootstrap</span>
             </div>
@@ -220,13 +218,21 @@
 
         <div class="timeline">
           <div class="tl-item reveal">
+            <div class="tl-date">September 2026 — Present</div>
+            <div class="tl-role">Software Engineer</div>
+            <div class="tl-org"><a href="https://lu360-advising-hub.vercel.app/" target="_blank"
+                rel="noopener">Lehigh360 AI Advising Hub ↗</a></div>
+            <p class="tl-desc">Build an AI advising workflow with Next.js, TypeScript, OpenAI structured outputs,
+              PostgreSQL, and Prisma. Connected Chat and Discover with personalized program recommendations,
+              eligibility-aware results, save/apply actions, and resumable per-student conversations.</p>
+          </div>
+          <div class="tl-item reveal">
             <div class="tl-date">August 2026 — Present</div>
             <div class="tl-role">Undergraduate Researcher</div>
             <div class="tl-org">Computational Simulation &amp; Network Science Lab · Lehigh University</div>
-            <p class="tl-desc">Analyzed 1,650 country-months across 25 African countries to distinguish associations
-              with persistent between-country differences in recorded outbreak activity from changes within a
-              country over time. Used logistic models with country-clustered confidence intervals, wild cluster
-              bootstrap p-values, robustness checks, and exploratory sensitivity models.</p>
+            <p class="tl-desc">First-authored a research article submitted to <em>Vaccine</em>. Reconstructed a
+              1,650-country-month panel from 576 outbreaks and 88 OCV requests, led the statistical analysis and an
+              external-documentation audit, and released reproducible code and derived data on Zenodo.</p>
           </div>
           <div class="tl-item reveal">
             <div class="tl-date">January 2026 — Present</div>
@@ -266,20 +272,23 @@
           <div class="skills-block">
             <div class="skills-cat">Programming Languages</div>
             <div class="token-row">
-              <span>Java</span><span>Python</span><span>SQL</span><span>HTML / CSS / JavaScript</span>
+              <span>Python</span><span>Java</span><span>SQL</span><span>TypeScript</span><span>JavaScript</span>
+              <span>HTML / CSS</span>
             </div>
           </div>
           <div class="skills-block">
             <div class="skills-cat">Frameworks &amp; Tools</div>
             <div class="token-row">
-              <span>Git / GitHub</span><span>pandas</span><span>statsmodels</span><span>Bokeh</span>
+              <span>Next.js</span><span>PostgreSQL</span><span>Prisma</span><span>OpenAI API</span>
+              <span>pandas</span><span>statsmodels</span><span>Bokeh</span><span>Git / GitHub</span>
             </div>
           </div>
           <div class="skills-block">
             <div class="skills-cat">Methods</div>
             <div class="token-row">
-              <span>Panel Data</span><span>Hazard Modeling</span><span>Logistic Regression</span><span>GEE</span>
-              <span>Mixed-Effects Models</span><span>Observational Study Design</span>
+              <span>SINDy</span><span>Panel Data</span><span>Logistic Regression</span>
+              <span>Between–Within Decomposition</span><span>Cluster-Robust Inference</span>
+              <span>Wild Cluster Bootstrap</span><span>Observational Study Design</span>
             </div>
           </div>
         </div>
