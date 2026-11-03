@@ -629,12 +629,18 @@ footer span,
   background: #fff;
 }
 
+.sindy-carousel .carousel-track img {
+  object-fit: contain;
+  background: #fff;
+}
+
 .research-carousel .carousel-dot {
   background: rgba(20, 20, 20, .28);
   border-color: rgba(20, 20, 20, .22);
 }
 
-.chem-carousel .carousel-dot {
+.chem-carousel .carousel-dot,
+.sindy-carousel .carousel-dot {
   background: rgba(20, 20, 20, .28);
   border-color: rgba(20, 20, 20, .22);
 }
@@ -644,6 +650,10 @@ footer span,
 }
 
 .chem-carousel .carousel-dot.active {
+  background: #141414;
+}
+
+.sindy-carousel .carousel-dot.active {
   background: #141414;
 }
 
